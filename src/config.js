@@ -4,5 +4,9 @@ config()
 console.log(process.env.NICKNAME)
 
 export default {
-    port: process.env.port || 2000
+    port: process.env.port || 2000,
+    dbUser: process.env.DB_USER || '',
+    dbPassword: process.env.DB_PASSWORD || '',
+    dbServer: process.env.DB_SERVER || '',
+    dbDataBase: process.env.DB_DATABASE || '',
 }

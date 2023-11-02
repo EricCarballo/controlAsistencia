@@ -1,25 +1,26 @@
 import sql from 'mssql'
+import config from '../config'
 
 const dbSettings = {
-    user: 'admin',
-    password: 'admin',
-    server: 'localhost',
-    database: 'controlAsistencia',
+    user: config.dbUser,
+    password: config.dbPassword,
+    server: config.dbServer,
+    database: config.dbDataBase,
     options: {
         encrypt: true,
         trustServerCertificate: true
     }
 } 
 
-async function getConection(){
+export async function getConection(){
 
     try{
         const conexion = await sql.connect(dbSettings)
-        return pool;
+        return conexion;
     }catch(error){
         console.error(error)
     }
 
 }
 
-getConection();
+export {sql};
