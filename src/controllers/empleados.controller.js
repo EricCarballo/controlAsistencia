@@ -19,11 +19,11 @@ export const getEmpleados = async (req, res) => {
 
 export const createEmpleado = async (req, res) => {
 
-    const { nombreEmpleado, puesto, sueldo, correo, celular, usuario, password } = req.body;
+    const { nombreEmpleado, puesto, sueldo, correo, celular, usuario, password, isAdmin } = req.body;
 
     const passwordHash = await encrypt(password)
 
-    if (nombreEmpleado == null || sueldo == null || puesto == null || correo == null || celular == null || usuario == null || password == null) {
+    if (nombreEmpleado == null || sueldo == null || puesto == null || correo == null || celular == null || usuario == null || password == null || isAdmin == null) {
         return res.status(400).json({ msg: 'Favor de llenar todos los campos' });
     }
 
@@ -40,6 +40,7 @@ export const createEmpleado = async (req, res) => {
             .input('celular', sql.VarChar, celular)
             .input('usuario', sql.VarChar, usuario)
             .input('password', sql.VarChar, passwordHash)
+            .input('isAdmin', sql.Bit, isAdmin)
             .input('activo', sql.Bit, true)
             .query(q.addEmpleado);
         
@@ -67,7 +68,7 @@ export const updateEmpleado = async ( req, res ) => {
     const { nombreEmpleado, puesto, sueldo, correo, celular, usuario, password } = req.body;
     const { id } = req.params;
 
-    if (nombreEmpleado == null || sueldo == null || puesto == null || correo == null || celular == null || usuario == null || password == null) {
+    if (nombreEmpleado == null || sueldo == null || puesto == null || correo == null || celular == null || usuario == null || password == null || isAdmin == null) {
         return res.status(400).json({ msg: 'Favor de llenar todos los campos' });
     }
     
@@ -80,6 +81,7 @@ export const updateEmpleado = async ( req, res ) => {
     .input('celular', sql.VarChar, celular)
     .input('usuario', sql.VarChar, usuario)
     .input('password', sql.VarChar, password)
+    .input('isAdmin', sql.Bit, isAdmin)
     .input('idEmpleado', sql.VarChar, id)
     .query(q.updateEmpleado)
 

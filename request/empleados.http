@@ -2,28 +2,30 @@
 ### RUTA ###
 @api = http://localhost:3000/empleados
 
+@api2 = http://localhost:3000/login
 
 ### OBTENER TODOS LOS EMPLEADOS ACTIVOS ###
 GET {{ api }}
+
 
 ### AGREGAR NUEVO EMPLEADO ###
 POST {{ api }}
 Content-Type: application/json
 
 {
-    "idEmpleado": "735581c0-1276-49b4-91b9-04bb30c65969",
-    "nombreEmpleado": "empleado test",
-    "puesto": "jefe",
-    "sueldo": 97,
+    "nombreEmpleado": "aldo",
+    "puesto": "empleado",
+    "sueldo": 100,
     "correo": "prueba.test@ganfer.com",
-    "celular": "1234567890",
-    "usuario": "prueba",
-    "password": "321"
+    "celular": "3",
+    "usuario": "aldo",
+    "password": "123",
+    "isAdmin": 0
 }
 
 
 ### BUSCAR EMPLEADO POR ID
-GET {{ api }}/
+GET {{ api }}/2aa773ef-962a-4967-8b7f-1dcf6f1a24c5
 
 
 ### EDITAR USUARIO POR ID ###
@@ -37,9 +39,20 @@ Content-Type: application/json
     "correo": "1",
     "celular": "1",
     "usuario": "1",
-    "password": "1"
+    "password": "1",
+    "isAdmin": "1"
 }
 
 
 ### ELIMINAR EMPLEADO ###
 DELETE {{ api }}/
+
+
+### LOGIN ###
+POST {{ {{api2}} }}
+Content-Type: application/json
+
+{
+    "usuario": "aldo",
+    "password": "123"
+}
