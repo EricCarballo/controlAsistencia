@@ -2,7 +2,7 @@ import express from "express";
 import config from "./config";
 import cors from "cors"
 
-import empleadosRoutes from './routes/empleadosRoutes.routes'
+import empleadosRoutes from './routes/routes'
 
 const app = express();
 

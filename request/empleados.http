@@ -13,14 +13,14 @@ POST {{ api }}
 Content-Type: application/json
 
 {
-    "nombreEmpleado": "aldo",
-    "puesto": "empleado",
+    "nombreEmpleado": "Martín",
+    "puesto": "jefe",
     "sueldo": 100,
     "correo": "prueba.test@ganfer.com",
     "celular": "3",
-    "usuario": "aldo",
+    "usuario": "martin",
     "password": "123",
-    "isAdmin": 0
+    "isAdmin": 1
 }
 
 

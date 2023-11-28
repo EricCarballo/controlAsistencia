@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'; 
 import {getConection, sql } from '../db/conection'
 import { q } from '../db/querys';
-import { encrypt, compare } from '../encrypt/ePassword'
+import { encrypt } from '../encrypt/ePassword'
 
 
 export const getEmpleados = async (req, res) => {
